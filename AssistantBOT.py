@@ -114,7 +114,7 @@ CONNECTION_ERRORS = ['404 HTTP', '200 HTTP', '400 HTTP', '401 HTTP', '403 HTTP',
 """MESSAGE TEMPLATES"""
 
 USER_AGENT = 'Artemis v{} (u/{}), a moderation assistant written by u/kungming2.'.format(VERSION_NUMBER, USERNAME)
-BOT_DISCLAIMER = ("\n\n---\n^Artemis: ^a ^moderation ^assistant ^for ^r/{0} ^| "
+BOT_DISCLAIMER = ("\n\n---\n^Artemis: ^помошник ^модерирования ^r/{0} ^| "
                   "[^Contact ^r/{0} ^mods](https://www.reddit.com/message/compose?to=%2Fr%2F{0}) ^| "
                   "[^Bot ^Info/Support](https://www.reddit.com/user/assistantbot/posts/?limit=2)")
 MSG_ACCEPT_INVITE = """
@@ -157,61 +157,61 @@ MSG_LEAVE = '''
 Artemis will no longer enforce flair or record statistics for r/{}. Have a good day!
 '''
 MSG_FLAIR_YOUR_POST = '''
-Hey there, u/{0},
+Привет, u/{0},
 
-Thanks for [your submission]({3}) to r/{1}! This is a friendly reminder that the moderators of this community have \
-asked for all posts in r/{1} to have a *post flair* - in other words, a relevant tag or category. 
+Спасибо за [твой пост]({3}) в r/{1}! Это дружелюбное напоминание что  \
+все посты на r/{1} должны иметь *пост флеер* - другими словами - соотвествующий тег или категорию
 
-**Here's how to select a flair for [your submission]({3})**: 
+**Тут показано как указать фллер для [твоего поста]({3})**: 
 
-*[Mobile](https://i.imgur.com/q9OIOaU.gifv)* | *[Tablet](https://i.imgur.com/I35qWPZ.gifv)* | \
-*[Desktop (New)](https://i.imgur.com/AAjN8en.gifv)* | *[Desktop (Old)](https://i.imgur.com/RmZr6Cv.gifv)*.
+*[Мобильная](https://i.imgur.com/q9OIOaU.gifv)* | *[Планшет](https://i.imgur.com/I35qWPZ.gifv)* | \
+*[Новый реддит](https://i.imgur.com/AAjN8en.gifv)* | *[Старый реддит](https://i.imgur.com/RmZr6Cv.gifv)*.
 
-**The following post flairs are available on r/{1}**:
+**Эти флееры доступны на r/{1}**:
 
 
 {2}
 
 
 {5} 
-Post flairs help keep r/{1} organized and allow our subscribers to easily sort through the posts \
-they want to see. Please [contact the mods of r/{1}]({4}) if you have any questions. Thank you very much!
+Пост флееры помогают r/{1} находить посты по правильным темам и скрывать неинтересующие \
+Пожалуйста [свяжитесь с модераторами r/{1}]({4}) если у вас возникнут вопросы. Спасибо большое!
 '''
 MSG_FLAIR_MOD_MSG = ("https://www.reddit.com/message/compose?to=%2Fr%2F{}&subject="
                      "About+My+Unflaired+Post&message=About+my+post+%5Bhere%5D%28{}%29...")
-MSG_FLAIR_REMOVAL = ("Your post has been removed but will be automatically restored if you select a flair for it within"
-                     " 24 hours. We apologize for the inconvenience.\n\n")
-MSG_FLAIR_APPROVAL = ("Thanks for selecting a flair for [your post]({})! It has been approved and is now fully visible "
-                      "on  r/{}. Have a great day!")
+MSG_FLAIR_REMOVAL = ("Ваш пост был удален по причине отсуствия флеера, но он будет восстановлен в течении 24 часов если вы укажете его"
+                     " Приносим извинения за неудобства\n\n")
+MSG_FLAIR_APPROVAL = ("Спасибо за то, что указали флеер на [вашем посте]({})! Он был одобрен ботом и теперь виден для всех "
+                      "на r/{}. Хорошего вам дня!")
 MSG_MOD_ENABLE = ("Flair enforcing is now **ENABLED** on r/{}. Artemis will send reminder messages to users "
                   "who submit posts without flairing them.")
 MSG_MOD_DISABLE = ("Flair enforcing is now **DISABLED** on r/{}. Artemis will *NOT* send reminder messages to users "
                    "who submit posts without flairing them.")
-WIKIPAGE_BLANK = ("# Statistics by Artemis (u/AssistantBOT)\n\n"
-                  "📊 *This statistics page will be updated in {} hours at midnight UTC.*")
+WIKIPAGE_BLANK = ("# Статистика от бота Artemis (u/AssistantBOT)\n\n"
+                  "📊 *Данная статистика обновится через {} часов в полночь по UTC.*")
 WIKIPAGE_TEMPLATE = '''
 
-# Statistics by Artemis (u/AssistantBOT)
+# Статистика от Artemis (u/AssistantBOT)
 
-## Bot Status
-
-{}
-
-## Posts
+## Статус бота
 
 {}
 
-## Subscribers
+## Посты
 
 {}
 
-## Traffic 
+## Подписчики
+
+{}
+
+## Трафик
 
 {}
 
 ---
 
-*Compiled by Artemis v{} in {} seconds and updated on {}.*
+*Сгенерированно Artemis v{} за {} секунд и обновлено в {}.*
 '''
 
 # This connects the bot with its main database file.
@@ -785,7 +785,7 @@ def subreddit_traffic_retriever(subreddit_name):
                                              num_avg_uniques_change, num_pageviews_changes)
 
     # Form the Markdown table.
-    header = ("| Month | Uniques | Uniques % Change | Pageviews | Pageviews % Change |\n"
+    header = ("| Месяц | Уникальных | Уникальных % Изменения | Посмотров | Просмотров % Изменения |\n"
               "|-------|---------|------------------|-----------|--------------------|\n")
     body = average_section + header + '\n'.join(formatted_lines)
 
@@ -889,7 +889,7 @@ def subreddit_subscribers_retriever(subreddit_name):
         average_change_section = ""
 
     # Format the actual body of the table.
-    subscribers_header = ("| Date | Subscribers | Net Change |\n"
+    subscribers_header = ("| Дата | Подписчики | Изменение |\n"
                           "|------|-------------|------------|\n")
     body = average_change_section + subscribers_header + '\n'.join(formatted_lines)
 
@@ -1073,7 +1073,7 @@ def subreddit_statistics_collater(subreddit, start_date, end_date):
     table_lines.append("| **Total** | {} | 100% |".format(total_amount))
 
     # Format the whole table.
-    table_header = ("| Post Flair | Number of Submissions | Percentage |\n"
+    table_header = ("| Пост флеер | Коливество постов | Процент |\n"
                     "|------------|-----------------------|------------|\n")
     table_body = table_header + '\n'.join(table_lines)
 
@@ -1107,7 +1107,7 @@ def subreddit_pushshift_oldest_retriever(subreddit_name):
         formatted_lines.append(new_line)
 
     # Format the returned Markdown text.
-    header = "\n\n### Oldest Submissions\n\n"
+    header = "\n\n### Самые старые посты\n\n"
     oldest_section = header + '\n'.join(formatted_lines)
 
     return oldest_section
@@ -1151,7 +1151,7 @@ def subreddit_pushshift_time_top_retriever(subreddit_name, start_time, end_time)
         dict_by_score[praw_submission_score] = praw_submission  # Use the score as a dictionary key.
     
     # Iterate over the PRAW submissions that are sort by highest score.
-    line_template = "* [{}]({}) (`+{}`), posted on {}."
+    line_template = "* [{}]({}) (`+{}`), опубликовал на {}."
     for item in list(sorted(dict_by_score.keys(), reverse=True)[:number_to_return]):
         relevant_submission = dict_by_score[item]
         title = relevant_submission.title
@@ -1162,7 +1162,7 @@ def subreddit_pushshift_time_top_retriever(subreddit_name, start_time, end_time)
         formatted_lines.append(new_line)
 
     # Put it all together.
-    header = "\n\n##### Most Popular Posts\n\n"
+    header = "\n\n##### Самые популярные посты\n\n"
     body = header + "\n".join(formatted_lines)
 
     return body
@@ -1209,9 +1209,9 @@ def subreddit_pushshift_time_authors_retriever(subreddit_name, start_time, end_t
     
     # Format everything together.
     if search_type == 'submission':  # Change the header depending on the type.
-        header = "\n\n##### Top Submitters\n\n"
+        header = "\n\n##### Топ авторы\n\n"
     else:
-        header = "\n\n##### Top Commenters\n\n"
+        header = "\n\n##### Топ комментаторы\n\n"
         
     if len(formatted_lines) > 0:  # We have entries for this month.
         body = header + '\n'.join(formatted_lines[:number_to_return])
@@ -1276,7 +1276,7 @@ def subreddit_pushshift_activity_retriever(subreddit_name, start_time, end_time,
         lines_to_post.append(line)
 
     # Format the text body.
-    header = "\n\n##### {}s Activity\n\n**Most Active Days**\n\n".format(search_type.title())
+    header = "\n\n##### {}s Activity\n\n**Самые активные дни**\n\n".format(search_type.title())
     if len(lines_to_post) > 0:  # There are days recorded.
         body = header + '\n'.join(lines_to_post) + average_line
     else:  # No days recorded.
@@ -1340,7 +1340,7 @@ def subreddit_statistics_retriever(subreddit_name):
         supplementary_data += subreddit_pushshift_time_authors_retriever(subreddit_name, first_day, last_day, 'comment')
 
         # Pull the single month entry together.
-        month_body = month_header + supplementary_data + "\n\n#### Submissions by Flair\n\n" + month_table
+        month_body = month_header + supplementary_data + "\n\n#### Постов по флеерам\n\n" + month_table
         formatted_data.append(month_body)  # Add it to the list.
 
     # Collect all the month entries. Reverse them so the newest is listed first.
