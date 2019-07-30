@@ -1,4 +1,5 @@
 ## Introducing Artemis (u/AssistantBOT), a flair enforcer and statistics bot for YOUR subreddit!
+### This is russian version which is designed to work on russian subreddits
 
 Looking for an easy-to-use bot to help make sure your community's submitters remember to choose a post flair? Want more detailed and extensive statistics on your community? **Artemis (u/AssistantBOT)** is an easy-to-use and helpful bot intended to help moderators with organizing and gaining insights into their own community. It is written by a moderator *for* moderators.
 
