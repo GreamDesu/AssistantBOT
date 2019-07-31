@@ -113,13 +113,13 @@ CONNECTION_ERRORS = ['404 HTTP', '200 HTTP', '400 HTTP', '401 HTTP', '403 HTTP',
 
 """MESSAGE TEMPLATES"""
 
-USER_AGENT = 'Artemis v{} (u/{}), a moderation assistant written by u/kungming2.'.format(VERSION_NUMBER, USERNAME)
+USER_AGENT = 'Artemis v{} (u/{}), помошний модерирования написанный u/kungming2 и переведенный /u/GreamDesu.'.format(VERSION_NUMBER, USERNAME)
 BOT_DISCLAIMER = ("\n\n---\n^Artemis: ^помошник ^модерирования ^r/{0} ^| "
                   "[^Contact ^r/{0} ^mods](https://www.reddit.com/message/compose?to=%2Fr%2F{0}) ^| "
                   "[^Bot ^Info/Support](https://www.reddit.com/user/assistantbot/posts/?limit=2)")
 MSG_ACCEPT_INVITE = """
-Thanks for letting me assist the r/{0} moderator team! I've begun enforcing flair for new submissions and will post \
-statistics for the community at [this wiki page](https://www.reddit.com/r/{0}/wiki/assistantbot_statistics). 
+Спасибо за то что используете меня на r/{0}! Я начал следить за флаерами и записывать \
+статистику этого сабреддита [на этой вики странице](https://www.reddit.com/r/{0}/wiki/assistantbot_statistics). 
 
 {1}
 
@@ -1559,14 +1559,14 @@ def flair_notifier(post_object, message_to_send):
     # Get some basic variables.
     author = post_object.author.name
     active_subreddit = str(post_object.subreddit)
-    subject_text = "[Notification] ⚠ Your post on r/{} needs a post flair!".format(active_subreddit)
+    subject_text = "[Notification] ⚠ Слудет указать флеер на вашем посте в r/{} !".format(active_subreddit)
 
     # Format the message.
     message_body = message_to_send + BOT_DISCLAIMER.format(active_subreddit)
 
     # Send the message.
     reddit.redditor(author).message(subject_text, message_body)
-    logger.debug("[Artemis] Notifier: Messaged u/{} about their post on r/{}.".format(author, active_subreddit))
+    logger.debug("[Artemis] Notifier: Написал u/{} насчет его флеера на r/{}.".format(author, active_subreddit))
 
     return
 
@@ -2256,7 +2256,7 @@ try:
             main_messaging()
             main_get_submissions()
             main_flair_checker()
-            main_timer()
+            #main_timer()
         except Exception as e:  # The bot encountered an error/exception.
             # Format the error text.
             error_entry = traceback.format_exc()
