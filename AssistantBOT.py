@@ -61,7 +61,7 @@ def load_credentials():
     """
 
     # Load the JSON file.
-    f = open(FILE_ADDRESS_CREDENTIALS, 'r', 'utf-8')
+    f = open(FILE_ADDRESS_CREDENTIALS, 'r', encoding='utf-8')
     credentials_data = f.read()
     f.close()
 
